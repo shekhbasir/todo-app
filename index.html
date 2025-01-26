@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #86bf85;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        #mob{
+            height: 400px;
+            width: 250px;
+            background-color:rgb(181, 175, 183);
+            border-radius: 20px;
+        
+        }
+        #in{
+            height: 25px;
+            width: 200px;
+            margin-top: 100px;
+        }
+        #dl{
+            margin-top: 245px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="mob">
+            <h2 style="background-color: #e08686;"> TO-DO LIST APP</h2>
+            <input type="text" name="" id="in" placeholder="enter your task"><button style="height: 32px;" id="bt">add</button>            
+        </div>
+    </div>
+    <script>
+        let mob=document.querySelector("#mob");
+        let s1=document.querySelector("#in");
+        let bt=document.querySelector("#bt")
+
+        const dl=document.querySelector("#dl");
+
+   
+
+        function kam(){
+            let val=0;
+
+            if(s1.value.trim()===""){
+                alert("plz enter your task first")
+            }else{
+                let newli=document.createElement("li");
+
+            newli.innerHTML=`${s1.value}`;
+
+            let del=document.createElement("button");
+            del.innerText='delete'
+          
+
+            del.addEventListener("click",function(){
+                mob.removeChild(newli);
+
+            })
+
+            newli.appendChild(del);
+
+            mob.appendChild(newli);
+
+            
+            s1.value="";
+            }
+
+
+
+
+
+            
+        }
+
+        bt.addEventListener("click",kam);
+
+        
+
+
+
+    </script>
+</body>
+</html>
